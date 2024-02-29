@@ -31,6 +31,7 @@ export default function Dashboard() {
 			return (
 				<Posty
 					key={item._id}
+					id={item.id}
 					title={item.title}
 					date={`${newDate.toDateString()}`}
 					description={item.description}
@@ -39,10 +40,20 @@ export default function Dashboard() {
 		)
 	
 	return (
-		<>
-			<div className="flex justify-center flex-wrap gap-4">
+		<>	
+			<header className="relative">
+				<div className="text-center text-xl">STICKIE-IT</div>
+				<div className="bi bi-list md:hidden absolute right-4 top-0 text-2xl cursor-pointer"></div>
+			</header>
+			<section className="flex justify-center p-4">
+				<button className="btn">
+					<span className="bi bi-plus-circle text-sm"></span>
+					<span className='text-sm'>Add a New Stickie</span>
+				</button>
+			</section>
+			<main className="flex justify-center flex-wrap gap-4">
 				{ posties }
-			</div>
+			</main>
 		</>
 	)
 	

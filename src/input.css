@@ -4,7 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.stickynote {
-	@apply p-4 m-2 bg-yellow-400 shadow shadow-black border border-black text-black w-64 h-52;
+@layer components {
+	
+	.stickynote {
+		@apply p-4 m-2 bg-yellow-400 shadow shadow-black border border-black text-black w-64 h-52;
+	}
+
+	.btn {
+		@apply flex justify-center gap-2 border hover:bg-white hover:text-bg-purple rounded-full px-3 py-1;
+	}
+	
 }
+
 

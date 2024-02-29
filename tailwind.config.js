@@ -12,6 +12,9 @@ export default {
 		fontFamily: {
 			caveat: ["Caveat"]
 		},
+		colors: {
+			'bg-purple': '#3B3486'
+		}
 	},
   },
   plugins: []

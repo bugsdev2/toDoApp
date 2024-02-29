@@ -1,16 +1,19 @@
-import './posty.css'
+import './posty.css';
+
 
 import React from "react";
+
 
 export default function Posty(props) {
 	
 	function handleEditClick(e){
-		console.log(e.target.parentElement.parentElement.key);
+		const id = e.target.parentElement.parentElement.id;
+		
 	};
 	
 	return (
 		<>
-			<div className="stickynote relative">
+			<div id={props.id} className="stickynote relative">
 				<div className="absolute w-8 h-8 bg-red-700 rounded-full top-[-10px] left-1/2 -translate-x-1/2 shadow-[5px_5px_10px_2px_black]">
 					<div className="absolute top-[7px] left-[8px] w-4 h-4 bg-red-900 rounded-full shadow-[1px_1px_3px_2px_black]"></div>
 				</div>
