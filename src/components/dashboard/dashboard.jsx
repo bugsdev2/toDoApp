@@ -41,12 +41,15 @@ export default function Dashboard() {
 			/>)
 		}
 	)
-		
+	
+	// SETTING UP A CHILD TO PARENT DATA SHARING FUNCTION	
 	function childToParent(data){
 		setFlag(data);
 	};
 	
+	// CREATING A VARIABLE FLAG TO CONTROL MODAL VISIBILITY ON SCREEN
 	const [flag, setFlag] = useState(false);
+	
 	
 	return (
 		<>	
