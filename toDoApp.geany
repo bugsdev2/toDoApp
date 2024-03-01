@@ -27,14 +27,14 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
+current_page=2
 FILE_NAME_0=112;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2FApp.jsx;0;4
-FILE_NAME_1=987;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
-FILE_NAME_2=364;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Ftailwind.config.js;0;4
+FILE_NAME_1=820;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
+FILE_NAME_2=430;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fposty%2Fposty.jsx;0;4
 FILE_NAME_3=287;CSS;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Finput.css;0;4
 
 [VTE]
-last_dir=/home/bugs/Projects/toDoApp/src
+last_dir=/home/bugs/Projects/toDoApp/src/components/dashboard
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;

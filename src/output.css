@@ -636,6 +636,10 @@ video {
   display: flex;
 }
 
+.hidden{
+  display: none;
+}
+
 .h-4{
   height: 1rem;
 }
@@ -681,10 +685,6 @@ video {
   border-radius: 9999px;
 }
 
-.border{
-  border-width: 1px;
-}
-
 .bg-red-700{
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
@@ -693,10 +693,6 @@ video {
 .bg-red-900{
   --tw-bg-opacity: 1;
   background-color: rgb(127 29 29 / var(--tw-bg-opacity));
-}
-
-.p-2{
-  padding: 0.5rem;
 }
 
 .p-4{
