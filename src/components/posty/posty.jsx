@@ -5,7 +5,7 @@ import React from "react";
 
 
 export default function Posty(props) {
-	
+	// TO GET THE EDIT AND CLOSE ICONS ON MOUSE HOVER
 	function handleMouseEnter(e){
 		const topRightBtnContainer = document.querySelector(`[data-key="${e.target.id}"]`);
 		topRightBtnContainer.style.display = 'flex';
@@ -16,6 +16,7 @@ export default function Posty(props) {
 		topRightBtnContainer.style.display = 'none';
 	};
 	
+	// HANDLING EDIT BUTTON CLICK
 	function handleEditClick(e){
 		const id = e.target.parentElement.parentElement.id;
 		
