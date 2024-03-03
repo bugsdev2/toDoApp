@@ -16,17 +16,18 @@ export default function Dashboard() {
 	const [flag, setFlag] = useState(false);
 
 	useEffect(() => {
-		if(cookie.userName === undefined) {
+		if(cookie.userName === undefined || cookie.userName === '') {
 			navigate('/login');
 		};
-	}, [cookie]);
+	}, [cookie['userName']]);
 	
-	 
+	//~ console.log(cookie.userName);
 	const [appointments, setAppointments] = useState([]);
 	
 	// GETTING APPOINTMENTS OF USER
 	useEffect(() => {
-		const url = 'https://todoapp-api-22b3.onrender.com/get-appointments/${cookie.userName}'
+		const userName = cookie.userName;
+		const url = `https://todoapp-api-22b3.onrender.com/get-appointments/${userName}`
 		axios.get(url)
 		.then(response => {
 			setAppointments(response.data);

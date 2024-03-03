@@ -7,15 +7,7 @@ import axios from 'axios';
 export default function StartUpPage() {
 	
 	const [cookie, setCookie, deleteCookie] = useCookies('userName');
-	const [users, setUsers] = useState([]);
 	const navigate = useNavigate();
-	
-	useEffect(() => {
-		axios.get('https://todoapp-api-22b3.onrender.com/get-users')
-			.then(res => {
-				setUsers([...res.data]);
-			})
-	}, []);
 	
 	const loginForm = useFormik({
 		initialValues: {
@@ -23,15 +15,16 @@ export default function StartUpPage() {
 			password: ''
 		},
 		onSubmit: (values) => {
-			console.log(values, users);
-			users.map(user => {
-				if(user.userName !== values.userName && user.password !== values.password){
-					navigate('/signup');
-				} else if(user.userName === values.userName && user.password === values.password) {
-					setCookie('userName', values.userName, {sameSite: 'strict' });
-					navigate('/dashboard');
-				}
-			});
+			const userName = values.userName;
+			const password = values.password;
+			axios.get(`https://todoapp-api-22b3.onrender.com/get-user/${userName}/${password}`).then((response) => {
+				const temp = response.data[0].userName;
+				setCookie('userName', temp, {sameSite: 'strict'});
+				navigate('/dashboard');
+			})
+			.catch(err => {
+				
+			})
 		}
 	});
 	
@@ -97,7 +90,7 @@ export default function StartUpPage() {
 			  </header>
 			  <main className="grid items-center border md:w-1/2 p-6">
 				<Routes>
-					<Route path="*" element={login}/>
+					<Route path="/login" element={login}/>
 					<Route path="/signup" element={signup}/>
 				</Routes>
 			  </main>

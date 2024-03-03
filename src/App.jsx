@@ -17,8 +17,8 @@ function App() {
 		
 			<div>
 				<Routes>
-					<Route path="*" element=<StartUpPage/>/>
-					<Route path="/dashboard" element=<Dashboard/>/>
+					<Route path="*" element=<StartUpPage/> />
+					<Route path="/dashboard" element=<Dashboard/> />
 				</Routes>
 			</div>
 		
