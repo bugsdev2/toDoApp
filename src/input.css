@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,8 +13,12 @@
 		@apply p-4 m-2 bg-yellow-400 shadow shadow-black border border-black text-black w-64 h-52;
 	}
 
-	.btn {
+	.btn-outline {
 		@apply flex justify-center items-center gap-2 border hover:bg-white hover:text-bg-purple rounded-full px-3 py-1;
+	}
+	
+	.btn {
+		@apply flex justify-center items-center gap-2 hover:text-bg-purple rounded-full px-3 py-1 bg-bg-purple text-white hover:bg-[rgb(65,65,134)] hover:text-white;
 	}
 	
 	.modal-container {

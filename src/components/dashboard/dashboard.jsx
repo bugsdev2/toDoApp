@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 import Posty from '../posty/posty.jsx';
 import Modal from '../modal/modal.jsx';
@@ -7,11 +9,24 @@ import AddAppointment from '../addAppointmentForm/form.jsx';
 
 export default function Dashboard() {
 	
+	const [cookie, setCookie, removeCookie] = useCookies('userName');
+	const navigate = useNavigate();
+	
+	// CREATING A VARIABLE FLAG TO CONTROL MODAL VISIBILITY ON SCREEN
+	const [flag, setFlag] = useState(false);
+
+	useEffect(() => {
+		if(cookie.userName === undefined) {
+			navigate('/login');
+		};
+	}, [cookie]);
+	
+	 
 	const [appointments, setAppointments] = useState([]);
 	
 	// GETTING APPOINTMENTS OF USER
 	useEffect(() => {
-		const url = 'https://todoapp-api-22b3.onrender.com/get-appointments/john_oliver'
+		const url = 'https://todoapp-api-22b3.onrender.com/get-appointments/${cookie.userName}'
 		axios.get(url)
 		.then(response => {
 			setAppointments(response.data);
@@ -42,23 +57,34 @@ export default function Dashboard() {
 		}
 	)
 	
+	const [,forceUpdate] = useReducer(x => x + 1, 0);
+	
+	
+	
 	// SETTING UP A CHILD TO PARENT DATA SHARING FUNCTION	
 	function childToParent(data){
 		setFlag(data);
 	};
 	
-	// CREATING A VARIABLE FLAG TO CONTROL MODAL VISIBILITY ON SCREEN
-	const [flag, setFlag] = useState(false);
 	
+	
+	function handleLogOut() {
+		removeCookie('userName');
+		navigate('/login');
+	};
 	
 	return (
 		<>	
 			<header className="relative text-white">
-				<div className="text-center text-xl tracking-widest mt-4">STICKEEZ</div>
-				<div className="bi bi-list md:hidden absolute right-4 top-0 text-2xl cursor-pointer"></div>
+				<div className="text-center text-3xl md:text-5xl tracking-wide mt-10 font-borel">Stickeez</div>
+				<div className="text-center"> Welcome, {cookie.userName} </div>
+				<div className="hidden md:block absolute right-4 -top-2 cursor-pointer">
+					<button onClick={handleLogOut} className="btn-outline">Log Out</button>
+				</div>
+				<div onClick={handleLogOut} className="bi bi-box-arrow-left md:hidden absolute right-4 -top-2 text-2xl cursor-pointer" title="Log Out"></div>
 			</header>
 			<section className="flex justify-center p-4 text-white">
-				<button className="btn">
+				<button className="btn-outline">
 					<span className="bi bi-plus-circle text-sm"></span>
 					<span onClick={() => setFlag(true)} className='text-sm'>ADD A NEW STICKEE</span>
 				</button>
