@@ -90,7 +90,7 @@ export default function StartUpPage() {
 			  </header>
 			  <main className="grid items-center border md:w-1/2 p-6">
 				<Routes>
-					<Route path="/login" element={login}/>
+					<Route path="/*" element={login}/>
 					<Route path="/signup" element={signup}/>
 				</Routes>
 			  </main>
