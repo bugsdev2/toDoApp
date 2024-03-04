@@ -25,9 +25,9 @@ export default function Posty(props) {
 
   const formik = useFormik({
     initialValues: {
-		date: userAppointmentState.date,
-		title: userAppointmentState.title,
-		description: userAppointmentState.description
+		date: userAppointmentState.date || '',
+		title: userAppointmentState.title || '',
+		description: userAppointmentState.description || ''
     }, 
     onSubmit: values => {
 		console.log(values);
@@ -44,8 +44,6 @@ export default function Posty(props) {
       .then((response) => {
 		const userAppointment = response.data[0];
 		setUserAppointmentState(userAppointment);
-		console.log(userAppointment);
-		console.log(userAppointmentState);
         const newDate = userAppointment.date.slice(0,10);
 		setModalElem(() => {
 		  return (
@@ -71,7 +69,7 @@ export default function Posty(props) {
 		
       })
       .catch((err) => {
-        console.log(err);
+			
       });
    
       
@@ -122,7 +120,7 @@ export default function Posty(props) {
         <div id={props.id} className="text-center font-caveat text-xl font-bold"> {props.description}</div>
       </div>
       <Modal isActive={flag} onClose={() => setFlag(false)}>
-        {modalElem}
+        { modalElem }
       </Modal>
     </>
   );
