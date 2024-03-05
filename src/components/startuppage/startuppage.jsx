@@ -101,8 +101,9 @@ export default function StartUpPage() {
 			  </header>
 			  <main className="grid items-center md:w-1/2 p-6">
 				<Routes>
-					<Route path="/*" element={login}/>
+					<Route path="/login" element={login}/>
 					<Route path="/signup" element={signup}/>
+					<Route index element={login}/>
 				</Routes>
 			  </main>
 		<Modal isActive={flag} onClose={() => setFlag(false)}>
