@@ -19,8 +19,8 @@ export default function Posty(props) {
 
   const [modalElem, setModalElem] = useState();
   const [flag, setFlag] = useState(false);
-  const [currentFont, setCurrentFont] = useState('font-caveat');
   const [cookie, setCookie, removeCookie] = useCookies('userName');
+  const [currentFont, setCurrentFont] = useState(cookie.font || 'font-caveat');
 
 
   // HANDLING EDIT BUTTON CLICK
@@ -31,10 +31,7 @@ export default function Posty(props) {
     axios.get(url)
       .then((response) => {
 		const userAppointment = response.data[0];
-		setUserAppointmentState(userAppointment);
         const newDate = userAppointment.date.slice(0,10);
-       
-        
 		setModalElem(() => {
 		  return (
 			<Formik initialValues={
@@ -69,11 +66,7 @@ export default function Posty(props) {
 		  );
 		});
 		setFlag(true);
-		
       })
-      .catch((err) => {
-			
-      });
    
       
     
@@ -105,6 +98,11 @@ export default function Posty(props) {
       `https://todoapp-api-22b3.onrender.com/delete-appointment/${userName}/${id}`
     );
   }
+  
+  // HANDLING FONT CHANGE
+  useEffect(() => {
+	  setCurrentFont(props.font);
+  }, [props.font]);
 
   return (
     <>

@@ -14,11 +14,11 @@
 	}
 
 	.btn-outline {
-		@apply flex justify-center items-center gap-2 border hover:bg-white hover:text-bg-purple rounded-full px-3 py-1;
+		@apply flex justify-center items-center gap-2 border hover:bg-white hover:text-bg-purple rounded-full px-3 py-1 cursor-pointer;
 	}
 	
 	.btn {
-		@apply flex justify-center items-center gap-2 hover:text-bg-purple rounded-full px-3 py-1 bg-bg-purple text-white hover:bg-[rgb(65,65,134)] hover:text-white;
+		@apply flex justify-center items-center gap-2 hover:text-bg-purple rounded-full px-3 py-1 bg-bg-purple text-white hover:bg-[rgb(65,65,134)] hover:text-white cursor-pointer;
 	}
 	
 	.modal-container {
