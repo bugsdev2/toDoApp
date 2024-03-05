@@ -60,7 +60,7 @@ export default function Posty(props) {
 					<label htmlFor="title" className="mt-2 mx-3"> Title </label>
 					<Field id="title" name="title" type="text" maxLength="30" className="border border-3 border-bg-purple rounded-full px-2 py-1 w-full" required />
 					<label htmlFor="description" className="mt-2 mx-2"> Description </label>
-					<Field type="textarea" id="description" name="description" maxLength="85" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></Field>
+					<Field type="textarea" id="description" name="description" maxLength="75" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></Field>
 				  </div>
 				  <div className="flex gap-2 justify-center mt-2">
 					<button type="submit" className="btn bg-bg-purple text-white hover:border-xl border-bg-purple">UPDATE</button>
