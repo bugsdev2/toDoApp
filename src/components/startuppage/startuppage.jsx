@@ -12,6 +12,11 @@ export default function StartUpPage() {
 	const [flag, setFlag] = useState(false);
 	const transferData = {};
 
+	useEffect(() => {
+		if(cookie.userName) {
+			navigate('/dashboard');
+		}
+	}, [cookie.userName]);
 	
 	const loginForm = useFormik({
 		initialValues: {
