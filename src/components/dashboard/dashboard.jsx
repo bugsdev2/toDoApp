@@ -80,7 +80,7 @@ export default function Dashboard() {
 				<div className="text-center text-3xl md:text-5xl tracking-wide mt-10 font-borel">Stickeez</div>
 				<div className="text-center"> Welcome, {cookie.userName} </div>
 				<div className="hidden md:block absolute right-4 -top-2 cursor-pointer">
-					<button onClick={handleLogOut} className="btn-outline">Log Out</button>
+					<button onClick={handleLogOut} className="btn-outline" title="Log Out">Log Out</button>
 				</div>
 				<div onClick={handleLogOut} className="bi bi-box-arrow-left md:hidden absolute right-4 -top-2 text-2xl cursor-pointer" title="Log Out"></div>
 			</header>
