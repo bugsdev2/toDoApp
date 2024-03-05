@@ -17,7 +17,7 @@ export default function Dashboard() {
 
 	useEffect(() => {
 		if(cookie.userName === undefined || cookie.userName === '') {
-			navigate('/login');
+			navigate('/');
 		};
 	}, [cookie['userName']]);
 	
