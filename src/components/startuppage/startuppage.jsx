@@ -108,7 +108,7 @@ export default function StartUpPage() {
 				<Routes>
 					<Route path="/login" element={login}/>
 					<Route path="/signup" element={signup}/>
-					<Route index element={login}/>
+					<Route path="*" element={login}/>
 				</Routes>
 			  </main>
 		<Modal isActive={flag} onClose={() => setFlag(false)}>

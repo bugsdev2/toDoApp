@@ -71,7 +71,7 @@ export default function Dashboard() {
 	
 	function handleLogOut() {
 		removeCookie('userName');
-		navigate('/login');
+		navigate('/');
 	};
 	
 	return (

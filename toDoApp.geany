@@ -29,8 +29,8 @@ long_line_column=72
 [files]
 current_page=2
 FILE_NAME_0=474;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2FApp.jsx;0;4
-FILE_NAME_1=1389;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fstartuppage%2Fstartuppage.jsx;0;4
-FILE_NAME_2=673;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
+FILE_NAME_1=1500;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fstartuppage%2Fstartuppage.jsx;0;4
+FILE_NAME_2=1789;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
 FILE_NAME_3=1766;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fposty%2Fposty.jsx;0;4
 FILE_NAME_4=722;CSS;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Finput.css;0;4
 FILE_NAME_5=569;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Ftailwind.config.js;0;4
