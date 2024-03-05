@@ -17,10 +17,9 @@ export default function Posty(props) {
     topRightBtnContainer.style.display = "none";
   }
 
-  const [id, setId] = useState(null);
   const [modalElem, setModalElem] = useState();
   const [flag, setFlag] = useState(false);
-  const [userAppointmentState, setUserAppointmentState] = useState({});
+  const [currentFont, setCurrentFont] = useState('font-caveat');
   const [cookie, setCookie, removeCookie] = useCookies('userName');
 
 
@@ -60,7 +59,7 @@ export default function Posty(props) {
 					<label htmlFor="title" className="mt-2 mx-3"> Title </label>
 					<Field id="title" name="title" type="text" maxLength="30" className="border border-3 border-bg-purple rounded-full px-2 py-1 w-full" required />
 					<label htmlFor="description" className="mt-2 mx-2"> Description </label>
-					<Field type="textarea" id="description" name="description" maxLength="75" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></Field>
+					<Field type="textarea" id="description" name="description" maxLength="70" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></Field>
 				  </div>
 				  <div className="flex gap-2 justify-center mt-2">
 					<button type="submit" className="btn bg-bg-purple text-white hover:border-xl border-bg-purple">UPDATE</button>
@@ -118,10 +117,10 @@ export default function Posty(props) {
           <span id={props.id} onClick={confirmCloseCLick} className="bi bi-x-lg cursor-pointer"></span>
         </div>
         <div id={props.id} className="mt-4">
-          <h5 id={props.id} className="font-caveat text-xl mb-4 font-bold"> {props.date}</h5>
-          <h4 id={props.id} className="text-center font-caveat text-xl text-red-900 font-bold">{props.title}</h4>
+          <h5 id={props.id} className={`${currentFont} text-xl mb-4 font-bold`}> {props.date}</h5>
+          <h4 id={props.id} className={`${currentFont} text-center text-xl text-red-900 font-bold`}>{props.title}</h4>
         </div>
-        <div id={props.id} className="text-center font-caveat text-xl font-bold"> {props.description}</div>
+        <div id={props.id} className={`${currentFont} text-center text-xl font-bold`}> {props.description}</div>
       </div>
       <Modal isActive={flag} onClose={() => setFlag(false)}>
         { modalElem }
