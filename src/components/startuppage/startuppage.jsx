@@ -30,7 +30,7 @@ export default function StartUpPage() {
 			const password = values.password;
 			axios.get(`https://todoapp-api-22b3.onrender.com/get-user/${userName}/${password}`).then((response) => {
 				setFlag(false);
-				setCookie('userName', userName, { sameSite: 'strict', maxAge: 3000000 });
+				setCookie('userName', userName, { sameSite: 'none', maxAge: 3000000 , secure: true });
 				navigate('/dashboard');
 			})
 			.catch(err => {
@@ -41,14 +41,14 @@ export default function StartUpPage() {
 	
 	const signUpForm = useFormik({
 		initialValues: {
-			userName: transferData.userName || '',
-			password: transferData.password || '',
+			userName:'',
+			password:'',
 			firstName: '',
 			lastName: ''
 		},
 		onSubmit: (values) => {
 			setFlag(true);
-			setCookie('userName', values.userName, { sameSite: 'strict', maxAge: 3000000 });
+			setCookie('userName', values.userName, { sameSite: 'none', maxAge: 3000000, secure: true });
 			axios.post('https://todoapp-api-22b3.onrender.com/add-user', values).then(() => {
 				navigate('/dashboard');
 			});

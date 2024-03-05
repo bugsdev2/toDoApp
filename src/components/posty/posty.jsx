@@ -2,7 +2,7 @@ import "./posty.css";
 import axios from "axios";
 import Modal from "../modal/modal.jsx";
 import React, { useState, useEffect, useReducer } from "react";
-import { useFormik } from "formik";
+import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
 import { useCookies } from 'react-cookie';
 
 export default function Posty(props) {
@@ -23,17 +23,6 @@ export default function Posty(props) {
   const [userAppointmentState, setUserAppointmentState] = useState({});
   const [cookie, setCookie, removeCookie] = useCookies('userName');
 
-  const formik = useFormik({
-    initialValues: {
-		date: userAppointmentState.date || '',
-		title: userAppointmentState.title || '',
-		description: userAppointmentState.description || ''
-    }, 
-    onSubmit: values => {
-		console.log(values);
-	},
-	enableReinitialize:true
-  });
 
   // HANDLING EDIT BUTTON CLICK
   function handleEditClick(e) {
@@ -45,24 +34,39 @@ export default function Posty(props) {
 		const userAppointment = response.data[0];
 		setUserAppointmentState(userAppointment);
         const newDate = userAppointment.date.slice(0,10);
+       
+        
 		setModalElem(() => {
 		  return (
-			<form id="wrapper" className="text-sm" onSubmit={formik.handleSubmit}>
-			  <h1 className="text-center font-bold text-bg-purple text-lg">
-				Edit your Stickee
-			  </h1>
-			  <div className="flex flex-col gap-1/2 text-bg-purple items-start">
-				<label htmlFor="date" className="mx-3">Date</label>
-				<input value = { newDate } onChange={formik.handleChange} id="date" name="date" className="border border-bg-purple rounded-full w-full px-2 py-1" type="date" required />
-				<label htmlFor="title" className="mt-2 mx-3"> Title </label>
-				<input value={userAppointment.title} onChange={formik.handleChange} id="title" name="title" type="text" maxLength="30" className="border border-3 border-bg-purple rounded-full px-2 py-1 w-full" required />
-				<label htmlFor="description" className="mt-2 mx-2"> Description </label>
-				<textarea value={userAppointment.description} onChange={formik.handleChange} id="description" name="description" maxLength="85" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></textarea>
-			  </div>
-			  <div className="flex gap-2 justify-center mt-2">
-				<button type="submit" className="btn bg-bg-purple text-white hover:border-xl border-bg-purple">UPDATE</button>
-			  </div>
-			</form>
+			<Formik initialValues={
+				{
+					date: newDate, 
+					title: userAppointment.title, 
+					description: userAppointment.description
+				}
+			} 
+			onSubmit={(values) => {
+				axios.put(`https://todoapp-api-22b3.onrender.com/edit-appointment/${cookie.userName}/${id}`, values).then(() => {
+					setFlag(false);
+				});
+			}} >
+				<Form id="wrapper" className="text-sm">
+				  <h1 className="text-center font-bold text-bg-purple text-lg">
+					Edit your Stickee
+				  </h1>
+				  <div className="flex flex-col gap-1/2 text-bg-purple items-start">
+					<label htmlFor="date" className="mx-3">Date</label>
+					<Field id="date" name="date" className="border border-bg-purple rounded-full w-full px-2 py-1" type="date" required />
+					<label htmlFor="title" className="mt-2 mx-3"> Title </label>
+					<Field id="title" name="title" type="text" maxLength="30" className="border border-3 border-bg-purple rounded-full px-2 py-1 w-full" required />
+					<label htmlFor="description" className="mt-2 mx-2"> Description </label>
+					<Field type="textarea" id="description" name="description" maxLength="85" className="border border-bg-purple w-full rounded-xl px-2 py-1 h-16 resize-none" required></Field>
+				  </div>
+				  <div className="flex gap-2 justify-center mt-2">
+					<button type="submit" className="btn bg-bg-purple text-white hover:border-xl border-bg-purple">UPDATE</button>
+				  </div>
+				</Form>
+			</Formik>
 		  );
 		});
 		setFlag(true);

@@ -27,11 +27,11 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
+current_page=3
 FILE_NAME_0=474;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2FApp.jsx;0;4
-FILE_NAME_1=586;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fstartuppage%2Fstartuppage.jsx;0;4
+FILE_NAME_1=1389;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fstartuppage%2Fstartuppage.jsx;0;4
 FILE_NAME_2=2735;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
-FILE_NAME_3=3018;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fposty%2Fposty.jsx;0;4
+FILE_NAME_3=1766;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fposty%2Fposty.jsx;0;4
 FILE_NAME_4=722;CSS;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Finput.css;0;4
 FILE_NAME_5=569;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Ftailwind.config.js;0;4
 FILE_NAME_6=417;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fmodal%2Fmodal.jsx;0;4
@@ -39,7 +39,7 @@ FILE_NAME_7=532;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2F
 FILE_NAME_8=141;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Findex.html;0;4
 
 [VTE]
-last_dir=/home/bugs/Projects/toDoApp/src/components/startuppage
+last_dir=/home/bugs/Projects/toDoApp/src/components/posty
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
