@@ -13,6 +13,7 @@ export default function Dashboard() {
 	const [font, setFont] = useState(cookie.font || 'font-caveat');
 	const fonts = ['font-caveat', 'font-lemonada', 'font-salsa', 'font-borel', 'font-sans', 'font-serif', 'font-mono'];
 	const [toggleMenu, setToggleMenu] = useState('hidden');
+	const [appointments, setAppointments] = useState([]);
 	const navigate = useNavigate();
 	
 	// CREATING A VARIABLE FLAG TO CONTROL MODAL VISIBILITY ON SCREEN
@@ -24,8 +25,6 @@ export default function Dashboard() {
 		};
 	}, [cookie['userName']]);
 	
-	//~ console.log(cookie.userName);
-	const [appointments, setAppointments] = useState([]);
 	
 	// GETTING APPOINTMENTS OF USER
 	useEffect(() => {
