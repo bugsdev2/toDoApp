@@ -11,6 +11,7 @@ export default function StartUpPage() {
 	const navigate = useNavigate();
 	const [flag, setFlag] = useState(false);
 	const [values, setValues] = useState({});
+	const [errorMsg, setErrorMsg] = useState('');
 
 	useEffect(() => {
 		if(cookie.userName) {
@@ -80,18 +81,32 @@ export default function StartUpPage() {
 						  lastName: ''
 					  }}
 					  onSubmit = {(values) => {
-							setValues(values);
-							setFlag(true);
-							setCookie('userName', values.userName, { sameSite: 'none', maxAge: 3000000, secure: true });
-							axios.post('https://todoapp-api-22b3.onrender.com/add-user', values).then(() => {
-								navigate('/login');
-								setFlag(false);
-							});
+							axios.get(`https://todoapp-api-22b3.onrender.com/get-users`).then((response) => {
+								const usersArr = response.data;
+								if(usersArr.find(item => item.userName === values.userName)) {
+									setErrorMsg(
+										<div className="text-center text-red-600 text-sm font-bold">
+											<div>It seems great minds do think alike</div>
+											<div>because this user name's been taken.</div>
+										</div>
+									);
+								} else {
+									setValues(values);
+									setFlag(true);
+									setCookie('userName', values.userName, { sameSite: 'none', maxAge: 3000000, secure: true });
+									axios.post('https://todoapp-api-22b3.onrender.com/add-user', values).then(() => {
+										navigate('/login');
+										setFlag(false);
+									});
+								}
+							})
+						  
 					  }}
 					  >
 						  <Form className="grid">
 							<label htmlFor="userName" className="mt-1">User Name</label>
 							<Field id="userName" name="userName" type="text" className="border border-bg-purple rounded-xl px-3 px-1" minLength="4" required/>
+							{ errorMsg }
 							<label htmlFor="passwordSignUp" className="mt-1">Password</label>
 							<Field id="password" name="password" type="password" className="border border-bg-purple rounded-xl px-3 px-1" minLength="6" required/>
 							<label htmlFor="firstName" className="mt-1">First Name</label>
