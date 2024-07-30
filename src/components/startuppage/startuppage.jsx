@@ -24,8 +24,8 @@ export default function StartUpPage() {
             <div className="text-center font-bold text-lg">Login</div>
             <Formik
                 initialValues={{
-                    userName: '',
-                    password: '',
+                    userName: 'test_user',
+                    password: 'Password123',
                 }}
                 validationSchema={Yup.object({
                     userName: Yup.string()
