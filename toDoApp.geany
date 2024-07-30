@@ -27,17 +27,8 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=24;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2FApp.jsx;0;4
-FILE_NAME_1=3093;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fstartuppage%2Fstartuppage.jsx;0;4
-FILE_NAME_2=3144;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fdashboard%2Fdashboard.jsx;0;4
-FILE_NAME_3=391;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fposty%2Fposty.jsx;0;4
-FILE_NAME_4=569;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Ftailwind.config.js;0;4
-FILE_NAME_5=863;CSS;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Finput.css;0;4
-FILE_NAME_6=243;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fsrc%2Fcomponents%2Fmodal%2Fmodal.jsx;0;4
-FILE_NAME_7=141;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Findex.html;0;4
-FILE_NAME_8=183;JSON;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Fvercel.json;0;4
-FILE_NAME_9=2988;Javascript;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp-api%2Fapi.js;0;4
+current_page=0
+FILE_NAME_0=369;HTML;0;EUTF-8;1;1;0;%2Fhome%2Fbugs%2FProjects%2FtoDoApp%2Findex.html;0;4
 
 [VTE]
 last_dir=/home/bugs/Projects/toDoApp/src/components/startuppage
