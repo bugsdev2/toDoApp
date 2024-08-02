@@ -6,12 +6,16 @@ import axios from 'axios';
 import Modal from '../modal/modal.jsx';
 import * as Yup from 'yup';
 
+import '../loader/loader.css';
+
 export default function StartUpPage() {
     const [cookie, setCookie, deleteCookie] = useCookies('userName');
     const navigate = useNavigate();
     const [flag, setFlag] = useState(false);
     const [values, setValues] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
+
+    const [loader, setLoader] = useState('hidden');
 
     useEffect(() => {
         if (cookie.userName) {
@@ -38,17 +42,17 @@ export default function StartUpPage() {
                         .required('*Please enter your Password'),
                 })}
                 onSubmit={(values) => {
-                    setFlag(true);
+                    setLoader('block');
                     const userName = values.userName;
                     const password = values.password;
                     axios.get(`https://todoapp-api-22b3.onrender.com/get-user/${userName}/${password}`).then((response) => {
                         if (response.data[0]) {
-                            setFlag(false);
+                            setLoader('hidden');
                             setCookie('userName', userName, { sameSite: 'none', maxAge: 3000000, secure: true });
                             navigate('/dashboard');
                         } else {
+                            setLoader('hidden');
                             navigate('/signup');
-                            setFlag(false);
                         }
                     });
                 }}
@@ -100,9 +104,11 @@ export default function StartUpPage() {
                     lastName: Yup.string().required('Please enter your Last Name'),
                 })}
                 onSubmit={(values) => {
+                    setLoader('block');
                     axios.get(`https://todoapp-api-22b3.onrender.com/get-users`).then((response) => {
                         const usersArr = response.data;
                         if (usersArr.find((item) => item.userName === values.userName)) {
+                            setLoader('hidden');
                             setErrorMsg(
                                 <div className="text-center text-red-600 text-sm font-bold">
                                     <div>It seems great minds do think alike</div>
@@ -111,11 +117,10 @@ export default function StartUpPage() {
                             );
                         } else {
                             setValues(values);
-                            setFlag(true);
                             setCookie('userName', values.userName, { sameSite: 'none', maxAge: 3000000, secure: true });
                             axios.post('https://todoapp-api-22b3.onrender.com/add-user', values).then(() => {
                                 navigate('/login');
-                                setFlag(false);
+                                setLoader('hidden');
                             });
                         }
                     });
@@ -156,29 +161,24 @@ export default function StartUpPage() {
         </div>
     );
 
-    const loader = (
-        <div className="bg-white text-bg-purple justify-self-center rounded-3xl p-4">
-            <div>Please wait while we are loading your dashboard.</div>
-            <div>It may sometimes take a few seconds.</div>
-        </div>
-    );
-
     return (
-        <div className="grid md:flex h-[100vh] w-[100vw]">
-            <header className="flex justify-center items-center py-20 text-white relative md:w-1/2 bg-rose-500">
-                <img className="absolute w-48" src="/images/stickyNote.png" />
-                <h1 className="text-7xl font-borel mt-20 z-20 text-white">Stickeez</h1>
-            </header>
-            <main className="grid items-center md:w-1/2 p-6">
-                <Routes>
-                    <Route path="/login" element={login} />
-                    <Route path="/signup" element={signup} />
-                    <Route index element={login} />
-                </Routes>
-            </main>
-            <Modal isActive={flag} onClose={() => setFlag(false)}>
-                {loader}
-            </Modal>
-        </div>
+        <>
+            <div className={`${loader} fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_0_1000px_black] opacity-90 bg-black`}>
+                <div className="loader"></div>
+            </div>
+            <div className="grid md:flex h-[100vh] w-[100vw]">
+                <header className="flex justify-center items-center py-20 text-white relative md:w-1/2 bg-rose-500">
+                    <img className="absolute w-48" src="/images/stickyNote.png" />
+                    <h1 className="text-7xl font-borel mt-20 z-20 text-white">Stickeez</h1>
+                </header>
+                <main className="grid items-center md:w-1/2 p-6">
+                    <Routes>
+                        <Route path="/login" element={login} />
+                        <Route path="/signup" element={signup} />
+                        <Route index element={login} />
+                    </Routes>
+                </main>
+            </div>
+        </>
     );
 }
