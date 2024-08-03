@@ -11,7 +11,6 @@ import '../loader/loader.css';
 export default function StartUpPage() {
     const [cookie, setCookie, deleteCookie] = useCookies('userName');
     const navigate = useNavigate();
-    const [flag, setFlag] = useState(false);
     const [values, setValues] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
 
